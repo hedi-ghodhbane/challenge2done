@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator 1.0</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleresponsive.css">
+
+</head>
+
+<body id=body>
+    <div class="container-fluid">
+        <div class="row">
+            <button type="button" class="btn btn-default result-button">Result</button>
+        </div>
+        <div class="row title">
+            <p class="title-text">Calculator 1.0</p>
+        </div>
+        <div class="row big-box">
+            <div class="col-md-3 col-sm-6 col-12 col-lg-3 box1 ">
+                <p class="resulti"></p>
+                <p class="resulti"></p>
+                <p class="resulti"></p>
+                <p class="resulti"></p>
+                <p class="resulti"></p>
+                <p class="resulti"></p>
+                <button class=reset2 onclick="resetResult()">Clear</button>
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 col-lg-3 box2 global-theme">
+
+                <center>
+                    <h2>Global theme</h2>
+                </center>
+                <center>
+                    <label for="global-gradient-type">
+                        Gradient type:
+                    </label>
+                    <select id="global-gradient-type">
+                        <option value="0deg">10</option>
+                        <option value="90deg">20</option>
+                        <option value="180deg">30</option>
+                        <option value="-90deg">40</option>
+                    </select>
+                    <br>
+                </center>
+                <center>
+                    <label for="FirstColor1">
+                        1st color:
+                    </label>
+                    <input class=selectcolor value="#ecf0f1" type="color" id="FirstColor1">
+                </center>
+                <center>
+                    <label for="SecondColor1">
+                        2nd color:
+                    </label>
+                    <input class=selectcolor value="#ecf0f1" type="color" id="SecondColor1"><br>
+                </center>
+                <center><button onclick="changegradientglobal()" type="button"
+                        class="btn btn-default grad-button1">Change color</button></center>
+
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 col-lg-3 box calcul-container">
+                <div class=calcul>
+
+                    <div class=screen></div>
+                    <div class=buttons>
+                        <input onclick="insert('+')" type="button" class="o b" value="+">
+                        <input onclick="insert('-')" type="button" class="o b" value="-">
+                        <input onclick="insert('*')" type="button" class="o b" value="*">
+                        <input onclick="insert('/')" type="button" class="o b" value="/">
+                        <input onclick="insert('%')" type="button" class="o b" value="%">
+                        <input onclick="insert('.')" type="button" class="n b" value=".">
+                        <input onclick="insert(0)" type="button" class="n b" value="0">
+                        <input onclick="insert(1)" type="button" class="n b" value="1">
+                        <input onclick="insert(2)" type="button" class="n b" value="2">
+                        <input onclick="insert(3)" type="button" class="n b" value="3">
+                        <input onclick="insert(4)" type="button" class="n b" value="4">
+                        <input onclick="insert(5)" type="button" class="n b" value="5">
+                        <input onclick="insert(6)" type="button" class="n b" value="6">
+                        <input onclick="insert(7)" type="button" class="n b" value="7">
+                        <input onclick="insert(8)" type="button" class="n b" value="8">
+                        <input onclick="insert(9)" type="button" class="n b" value="9">
+                        <input onclick="insert('=')" type="button" class="eg b" value="=">
+                        <input onclick="reset()" type="button" class="n b1 reset" value="reset">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 col-lg-3 box2 digit-theme">
+                <!--<div class="digit-theme">-->
+                <center>
+                    <h2>Digit theme</h2>
+                </center>
+                <center>
+                    <label for="digit-gradient-type">
+                        Gradient type:
+                    </label>
+                    <select id="digit-gradient-type">
+                        <option value="0">10</option>
+                        <option value="90deg">20</option>
+                        <option value="180deg">30</option>
+                        <option value="90deg">40</option>
+                    </select>
+                    <br>
+                </center>
+                <center>
+                    <label for="first-color-input2">
+                        1st color:
+                    </label>
+                    <input class=selectcolor value="#ecf0f1" type="color" id="first-color-input2">
+                </center>
+                <center>
+                    <label for="second-color-input2">
+                        2nd color:
+                    </label>
+                    <input class=selectcolor value="#ecf0f1" type="color" id="second-color-input2"><br>
+                </center>
+                <center><button onclick="changegradientdigit()" type="button"
+                        class="btn btn-default grad-button2">Change color</button></center>
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="design-text">Don't like this design? <b class="costumize">Costumize!</b> </h3>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
